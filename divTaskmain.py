@@ -3,7 +3,7 @@ import random as rnd
 import os
 
 def clear():
-    os.system("clear")
+    os.system('cls' if os.name=='nt' else 'clear')
 def dicprint(dic):
     for i, a in dic.items(): print(i,a)
 def divide_tasks(ls_P,nr_ofA,PpA = None):
@@ -11,11 +11,9 @@ def divide_tasks(ls_P,nr_ofA,PpA = None):
     while erg == False:
         dic = {}
         lsas = []
-        #create list of assignments (each assignment is mentioned PpA times)
         for i in range(nr_ofA): 
             for l in range(PpA):
                 lsas.append(i+1)
-        #create dic for each person, fill with list of assignments
         for p in ls_P:
             tmp_ls = []
             x = int((PpA*nr_ofA)/len(ls_P))
@@ -57,7 +55,6 @@ except ValueError:
     print("put in integer number")
     exit()
 clear()
-
 
 dicprint(divide_tasks(ls_people,number_tasks,sol_tasks))
 print()
